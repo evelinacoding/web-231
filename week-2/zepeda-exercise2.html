@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>WEB 231 - Enterprise Javascript I</title>
+        <link rel="stylesheet" href="global.css">
+        <!-- 
+            Title: zepeda-exercise2.html
+            Author: Evelyn Zepeda
+            Date: 8/17/23
+            Description: WEB 231 Button that displays text once it is pushed.
+        -->
+    </head>
+
+    <body>
+        <h1>Exercise 2.2 - Hello Javascript</h1>
+        <button type="button" id="btnMyCourse" onclick="alertFunction()" >What course am I taking?</button>
+        
+        <p id="txtMyWorld"></p>
+        <script>
+            //Binds the text to the paragraph.
+            document.getElementById('txtMyWorld').innerHTML = "You are now in Zepeda's world.";
+
+            //Function that gives alert text to the button.
+            function alertFunction() {
+                alert("WEB 231 - Enterprise Javascript I")
+            }
+                
+        </script>
+
+        <a class="return-home" href="zepeda-exercise2.html">Return</a> 
+    </body>
+</html>
