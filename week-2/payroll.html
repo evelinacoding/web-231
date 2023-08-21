@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>WEB 231 - Enterprise Javascript I</title>
+        <link rel="stylesheet" href="../site.css">
+        <link rel="stylesheet" href="../global.css">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+        <!--
+            Title: payroll.html
+            Author: Evelyn Zepeda
+            Date: 8/19/23
+            Description: Assigns values and variables to different items as well as changing decimal points and assigning dates.
+        -->
+    </head>
+
+    <body>
+        <div id="container">
+            <h1 id="payroll-header" class="app-header">Payroll System</h1>
+
+            <!--The employee record of Ludwig Beethoven-->
+            <h3>Employee record 1</h3>
+                <ul class="payrollEmployeeRecord">
+                    <li id="txtFirstNameLudwig">Ludwig</li>
+                    <li id="txtLastNameBeethoven">Beethoven</li>
+                    <li id="txtAddressLudwig">123 4th street</li>
+                    <li id="txtHireDateLudwig">09/09/1999</li>
+                    <li id="txtPayRateLudwig">40.50</li>
+                </ul>
+            <!--The employee record of John Locke-->
+            <h3>Employee record 2</h3>
+                <ul class="payrollEmployeeRecord">
+                    <li id="txtFirstNameJohn">John</li>
+                    <li id="txtLastNameLocke">Locke</li>
+                    <li id="txtAddressJohn">815 Island Drive</li>
+                    <li id="txtHireDateJohn">09/22/2004</li>
+                    <li id="txtPayRateJohn">48.15</li>
+                </ul>
+            <!--The employee record of Rose Dawson.-->
+            <h3>Employee Record 3</h3>
+                <ul class="payrollEmployeeRecord">
+                    <li id="txtFirstNameRose">Rose</li>
+                    <li id="txtLastNameDawson">Dawson</li>
+                    <li id="txtAddressRose">555 Harbor Blvd</li>
+                    <li id="txtHireDateRose">01/22/1990</li>
+                    <li id="txtPayRateRose">34.75</li>
+                </ul>
+
+            <script>
+                // Variables for first names.
+                let firstNameLudwig = "Ludwig";
+                let firstNameJohn = "John";
+                let firstNameRose = "Rose";
+
+                // Variables for last names.
+                let lastNameLudwig = "Beethoven";
+                let lastNameLocke = "Locke";
+                let lastNameDawson = "Dawson";
+
+                // Variables for addresses.
+                let addressLudwig = "123 4th Street";
+                let addressJohn = "815 Island Drive";
+                let addressRose = "555 Harbor Blvd"
+                    
+                // Variables for hire dates.
+                let hireDateLudwig = "09/09/1999";
+                let hireDateJohn = "09/22/2004";
+                let hireDateRose = "01/22/1990";
+
+                //Variables for pay rates.
+                let payRateLudwig = 40.50;
+                let payRateJohn = 48.15;
+                let payRateRose = 34.75;
+
+                // Assigns the pay rates to the html file and fixes the decimal
+                document.getElementById("txtPayRateLudwig").innerHTML= payRateLudwig.toFixed(1); 
+                document.getElementById("txtPayRateJohn").innerHTML= payRateJohn.toFixed(1);
+                document.getElementById("txtPayRateRose").innerHTML= payRateRose.toFixed(1);
+
+                // Changes the date to a string using local settings
+                let d = new Date();
+                let text = d.toLocaleDateString("en-US");
+                document.getElementById("txtHireDateLudwig").innerHTML = text;
+                document.getElementById("txtHireDateJohn").innerHTML = text;
+                document.getElementById("txtHireDateRose").innerHTML = text;
+            </script>
+
+            <!--A link to return to the top of the page.-->
+            <a href="payroll.html" id="return-home">Return</a>
+
+        </div>
+    </body>
+</html>
