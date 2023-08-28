@@ -1,0 +1,11 @@
+.app-header {
+    text-align: center;
+}
+
+#card-content {
+    text-align: center;
+    font-size: 28px;
+    font-family: Oswald;
+    width: 600px;
+    margin: 3% auto 0;
+}

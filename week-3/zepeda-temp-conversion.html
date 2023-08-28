@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>WEB 231 - Enterprise Javascript I</title>
+        <link rel="stylesheet" href="../global.css">
+        <link rel="stylesheet" href="temp-conversion.css">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+        <!-- 
+            Title: zepeda-temp-conversion.html
+            Author: Evelyn Zepeda
+            Date: 8/17/23
+            Description: WEB 231 Farenheit to Celsius converter.
+        -->
+    </head>
+
+    <body>
+        <div id="container">
+            <h1 class="app-header">Welcome to the Temperature Conversion App!</h1>
+            
+            <div id="card-example">
+                <div class="card">
+                    <div class="card-title">Fahrenheit to Celsius Converter</div>
+                    <div class="card-content">
+                        <div class="form">
+                            <div class="form-field">
+                                <label for="txtFahrenheit">Fahrenheit value:</label>
+                                <input type="text" class="input" id="txtFahrenheit"/>
+                            </div>
+
+                            <div class="form-field">
+                                <button type="button" class="btn btn-primary full-width" id="convertTemperature" onclick="convertTemperature()">Convert Temperature</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="form-results-example">
+                <div class="card">
+                    <div class="card-title">Conversion Results</div>
+                    <div class="card-content" id="card-content"></div>
+                </div>
+                <a class="return-home" href="zepeda-exercise2.html">Return</a> 
+            </div>  
+            
+            
+        </div>
+
+        <script>
+            //Function to convert the temperature from Fahrenheit to Celsius
+            function convertTemperature() {
+                let fahrenheit = document.getElementById("txtFahrenheit").value;
+                let celsius = ((parseFloat(fahrenheit) - 32)/1.8).toFixed(2);
+                document.getElementById("card-content").innerHTML = celsius;
+            } 
+
+
+        </script>
+    </body>
+</html>
