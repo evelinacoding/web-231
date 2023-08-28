@@ -28,3 +28,7 @@ a:hover {
 a:visited {
     color: #3C275A;
 }
+
+.payrollEmployeeRecord {
+    border: 1px dotted red;
+}
