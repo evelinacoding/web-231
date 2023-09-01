@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>WEB 231 - Enterprise Javascript I</title>
+        <link rel="stylesheet" href="../global.css">
+        <link rel="stylesheet" href="zepeda-number-game.css">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+        <!-- 
+            Title: zepeda-number-game.html
+            Author: Evelyn Zepeda
+            Date: 8/31/23
+            Description: A random number generator.
+        -->
+    </head>
+
+    <body>
+        <div id="container">
+            <h1 class="app-header">Welcome to the numbers game!</h1>
+            
+            <div id="card-example">
+                <div class="card">
+                    <div class="card-title">Pick a number between 1 and 10</div>
+                    <div class="card-content">
+                        <div class="form">
+                            <div class="form-field">
+                                <label for="txtMyNumber">Guess the number:</label>
+                                <input type="text" class="input" id="txtMyNumber"/>
+                            </div>
+
+                            <div class="form-field">
+                                <button type="button" class="btn btn-primary full-width" id="btnSubmit" onclick="btnSubmit()">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="form-results-example">
+                <div class="card">
+                    <div class="card-title">Results</div>
+                    <div class="card-content" id="card-content"></div>
+                </div>
+                <a class="return-home" href="../index.html">Return</a> 
+            </div>  
+            
+        </div>
+
+        <script>
+            //Generate a number between 1 and 10
+            const rnd = Math.floor((Math.random() * 10) + 1);
+
+            //Button that submits user input 
+            function btnSubmit() {
+                //Random number generator
+                let myNumber = document.getElementById("txtMyNumber").value;
+
+                //Matches the random number generator with text according to accuracy
+                if (myNumber > rnd) {
+                    document.getElementById("card-content").innerHTML ="The number is less than " + myNumber;
+                } else if (myNumber < rnd) {
+                    document.getElementById("card-content").innerHTML = "The number is greater than " + myNumber;
+                } else {
+                    document.getElementById('card-content').innerHTML = "Congratulations You picked the correct number!";
+                }
+            }
+        </script>
+    </body>
+</html>
