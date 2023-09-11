@@ -16,20 +16,26 @@
 
     <body>
         <div id="container">
-            <h1 class="app-header">Welcome to the Temperature Conversion App!</h1>
+            <h1 class="app-header">Welcome to the sequence game!</h1>
             
             <div id="card-example">
                 <div class="card">
-                    <div class="card-title">Fahrenheit to Celsius Converter</div>
+                    <div class="card-title">Sequence Selection Form</div>
                     <div class="card-content">
                         <div class="form">
                             <div class="form-field">
-                                <label for="txtFahrenheit">Fahrenheit value:</label>
-                                <input type="text" class="input" id="txtFahrenheit"/>
+                                <label for="txtFahrenheit">Choose a number sequence</label>
+                                <select id="sequence" class="drop-down-menu">
+                                    <option value="select">--Select--</option>
+                                    <option value="fibonacci">Fibonacci Sequence</option>
+                                    <option value="even">Even Numbers</option>
+                                    <option value="odd">Odd Numbers</option>
+                                </select>
+                                
                             </div>
 
                             <div class="form-field">
-                                <button type="button" class="btn btn-primary full-width" id="convertTemperature" onclick="convertTemperature()">Convert Temperature</button>
+                                <button type="button" class="btn btn-primary full-width" id="btnDisplaySequence" onclick="">Display Sequence</button>
                             </div>
                         </div>
                     </div>
@@ -41,19 +47,21 @@
                     <div class="card-title">Conversion Results</div>
                     <div class="card-content" id="card-content"></div>
                 </div>
-                <a class="return-home" href="zepeda-exercise2.html">Return</a> 
+                <a class="return-home" href="zepeda-sequence-game.html">Return</a> 
             </div>  
             
             
         </div>
 
         <script>
+
+
             //Function to convert the temperature from Fahrenheit to Celsius
-            function convertTemperature() {
+            /*function convertTemperature() {
                 let fahrenheit = document.getElementById("txtFahrenheit").value;
                 let celsius = ((parseFloat(fahrenheit) - 32)/1.8).toFixed(2);
                 document.getElementById("card-content").innerHTML = celsius;
-            } git
+            } git*/
 
 
         </script>

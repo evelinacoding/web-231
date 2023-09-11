@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>WEB 231 - Enterprise Javascript I</title>
+        <link rel="stylesheet" href="../global.css">
+        <link rel="stylesheet" href="zepeda-sequence-game.css">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+        <!-- 
+            Title: zepeda-temp-conversion.html
+            Author: Evelyn Zepeda
+            Date: 8/17/23
+            Description: WEB 231 Fahrenheit to Celsius converter.
+        -->
+    </head>
+
+    <body>
+        <div id="container">
+            <h1 class="app-header">Welcome to the sequence game!</h1>
+            
+            <div id="card-example">
+                <div class="card">
+                    <div class="card-title">Sequence Selection Form</div>
+                    <div class="card-content">
+                        <div class="form">
+                            <div class="form-field">
+                                <label>Choose a number sequence</label>
+                                <select id="sequence" class="drop-down-menu">
+                                    <option value="select">--Select--</option>
+                                    <option value="fibonacci">Fibonacci Sequence</option>
+                                    <option value="even">Even Numbers</option>
+                                    <option value="odd">Odd Numbers</option>
+                                </select>
+                                
+                            </div>
+
+                            <div class="form-field">
+                                <button type="button" class="btn btn-primary full-width" id="btnDisplaySequence" onclick="btnSubmit()">Display Sequence</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="form-results-example">
+                <div class="card">
+                    <div class="card-title">Sequence Results</div>
+                    <div class="card-content" id="card-content"></div>
+                </div>
+                <a class="return-home" href="../index.html">Return</a> 
+            </div>  
+            
+            
+        </div>
+
+        <script>
+
+            function btnSubmit() {
+                //The value from the select list
+                let choice = document.getElementById('sequence').value;
+
+           
+
+            
+
+                if (choice === "fibonacci") {
+                    let num1 = 0;
+                    let num2 = 1;
+                    let next;
+
+                    let fibonacciSequenceText = num1 + "";
+
+                    while (num1 < 40) {
+                        fibonacciSequenceText +=num1 + ", "
+                        next = num1 + num2;
+                        num1 = num2;
+                        num2 = next;
+                        document.getElementById('card-content').innerHTML = fibonacciSequenceText.slice(0, -2);
+                    }
+
+                    
+
+                } else if (choice === "even") {
+                    let evenNumbers = "";
+                    let num1 = 0;
+                    let next;
+
+                    do {
+                        evenNumbers += num1 + ", ";
+                        next = num1 + 2;
+                        num1 = next;
+                        document.getElementById('card-content').innerHTML = evenNumbers.slice(0, -2);
+                    }
+
+                    while(num1 < 20);
+
+                } else if (choice === "odd") {
+
+                    let oddNumbers = "";
+                    
+                    
+                    for (let i = 1; i < 20; i+= 2) {
+                        oddNumbers = i;
+                         
+                        document.getElementById('card-content').innerHTML += oddNumbers + ", "
+                    }
+                    j = document.getElementById('card-content').innerHTML.slice(0, -2);
+                    
+                    document.getElementById('card-content').innerHTML = j;
+                    
+                
+                } else {
+                    document.getElementById('card-content').innerHTML = window.alert("Invalid selection. Please try again!");
+                }
+
+            }
+        </script>
+    </body>
+</html>
