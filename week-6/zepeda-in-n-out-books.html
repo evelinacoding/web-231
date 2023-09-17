@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>WEB 231 - Enterprise Javascript I</title>
+        <link rel="stylesheet" href="../global.css">
+        <link rel="stylesheet" href="zepeda-in-n-out-books.css">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+        <!-- 
+            Title: zepeda-in-n-out-books.html
+            Author: Evelyn Zepeda
+            Date: 9/14/23
+            Description: zepeda-in-n-out-books.html
+        -->
+    </head>
+
+    <body onload="onloadFunction()">
+        <div id="container">
+            <h1 class="app-header">Welcome to In-N-Out-Books</h1>
+            
+            <div id="card-example">
+                <div class="card">
+                    <div class="card-title">My Favorites</div>
+                    <div class="card-content">
+                        <div class="form">
+                            <div class="form-field">
+                                <label>Choose a listing:</label>
+                                <select id="choiceListing" class="drop-down-menu">
+                                    <option value="select">--Select--</option>
+                                    <option value="books">Top 3 Favorite Books</option>
+                                    <option value="authors">Top 3 Favorite Authors</option>
+                                </select>
+                                
+                            </div>
+
+                            <div class="form-field">
+                                <button type="button" class="btn btn-primary full-width" id="btnDisplayListing" onclick="displayListing()">Display Listing</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="form-results-example">
+                <div class="card" id="favorite-books">
+                    <div class="card-title">Top 3 Favorite Books</div>
+                        <table>
+                            <tr>
+                                <th>ISBN</th>
+                                <th>Title</th>
+                                <th>Pages</th>
+                            </tr>
+                            <tr>
+                                <td id="txtLotrISBN"></td>
+                                <td id="txtLotrTitle"></td>
+                                <td id="txtLotrPages"></td>
+                            </tr>
+                            <tr>
+                                <td id="txtFirstHarryPotterISBN"></td>
+                                <td id="txtFirstHarryPotterTitle"></td>
+                                <td id="txtFirstHarryPotterPages"></td>
+                            </tr>
+                            <tr>
+                                <td id="txtLastHarryPotterISBN"></td>
+                                <td id="txtLastHarryPotterTitle"></td>
+                                <td id="txtLastHarryPotterPages"></td>
+                            </tr>
+                        </table>
+                </div>
+                <div class="card" id="favorite-authors">
+                    <div class="card-title">Top 3 Favorite Authors</div>
+                        <table>
+                            <tr>
+                                <th>Name</th>
+                                <th>Genre</th>
+                            </tr>
+                            <tr>
+                                <td id="txtTolkienName"></td>
+                                <td id="txtTolkienGenre"></td>
+                            </tr>
+                            <tr>
+                                <td id="txtMartinName"></td>
+                                <td id="txtMartinGenre"></td>
+                            </tr>
+                            <tr>
+                                <td id="txtKingName"></td>
+                                <td id="txtKingGenre"></td>
+                            </tr>
+                        
+                        </table>
+                    </div>
+                    <a class="return-home" href="../index.html">Return</a> 
+                </div>
+                
+            </div>  
+            
+            
+        </div>
+
+        <script>
+
+        //Global variables for the books and authors
+        let books = document.getElementById('favorite-books');
+        let authors = document.getElementById('favorite-authors');
+
+        //A function for the onload event 
+        function onloadFunction() {
+        
+            //The variables for the table
+            let lotr = {
+                isbn: 9780544003415,
+                title: 'The Lord of the Rings',
+                pages: 1216
+            };
+
+            let firstHarryPotter = {
+                isbn: 9781338299144,
+                title: "Harry Potter and the Sorcerer's Stone",
+                pages: 336
+            };
+
+            let lastHarryPotter = {
+                isbn: 9780545139700,
+                title: "Harry Potter and the Deathly Hallows",
+                pages: 784
+            };
+
+            let tolkien = {
+                name: "John Ronald Reuel Tolkien",
+                genre: "Fantasy"
+            };
+
+            let martin = {
+                name: "George Raymond Richard Martin",
+                genre: "Fantasy"
+            }
+            
+            let king = {
+                name: "Stephen King",
+                genre: "Horror, Crime, Fiction, Sci-Fi"
+            };
+        
+            //To hide the table from being displayed
+            books.style.display = "none";
+            authors.style.display = "none";
+            
+            //Filling out the contents of the table
+            document.getElementById('txtLotrISBN').innerHTML = lotr.isbn;
+            document.getElementById('txtLotrTitle').innerHTML = lotr.title;
+            document.getElementById('txtLotrPages').innerHTML = lotr.pages;
+            document.getElementById('txtFirstHarryPotterISBN').innerHTML = firstHarryPotter.isbn;
+            document.getElementById('txtFirstHarryPotterTitle').innerHTML = firstHarryPotter.title;
+            document.getElementById('txtFirstHarryPotterPages').innerHTML = firstHarryPotter.pages;
+            document.getElementById('txtLastHarryPotterISBN').innerHTML = lastHarryPotter.isbn;
+            document.getElementById('txtLastHarryPotterISBN').innerHTML = lastHarryPotter.isbn;
+            document.getElementById('txtLastHarryPotterTitle').innerHTML = lastHarryPotter.title;
+            document.getElementById('txtLastHarryPotterPages').innerHTML = lastHarryPotter.pages;
+
+            document.getElementById('txtTolkienName').innerHTML = tolkien.name;
+            document.getElementById('txtTolkienGenre').innerHTML = tolkien.genre;
+            document.getElementById('txtMartinName').innerHTML = martin.name;
+            document.getElementById('txtMartinGenre').innerHTML = martin.genre;
+            document.getElementById('txtKingName').innerHTML = king.name;
+            document.getElementById('txtKingGenre').innerHTML = king.genre;
+        }
+
+        //A function to display the listing
+        function displayListing() {
+        //A variable containing the different select choices
+        let choice = document.getElementById('choiceListing').value;
+
+        //An if statement displaying the differenc choices
+            if (choice === "books") {
+                books.style.display = "block";
+                authors.style.display = "none";
+            } else if (choice === "authors") {
+                authors.style.display = "block";
+                books.style.display = "none";
+            } else if (choice === "select") {
+                books.style.display = "none";
+                authors.style.display = "none";
+                }
+            }
+        
+        </script>
+    </body>
+</html>
